@@ -1,0 +1,126 @@
+.page {
+    padding: 5px 15px 0 15px;
+}
+
+.toolbar {
+    position: relative;
+    height: 76px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .select-currency {
+        width: 100%;
+    }
+
+    .display {
+        width: 100%;
+        
+        .display-tittle {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .display-tittle p {
+            margin: 0;
+        }
+        .display-tittle h2 {
+            margin: 0;
+            font-size: 24px;
+            padding-top: 4px;
+        }
+        .display-value {
+            width: 100%;
+            height: 72px;
+            background-color: #07b0fb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .more-info-button {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+}
+
+.content h2 {
+    color: #07b0fb;
+}
+
+.button {
+    border-radius: 100px;
+    width: 100%;
+    color: white !important;
+    font-size: 16px;
+    height: 48px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    background: #07b0fb;
+    width: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.footer p {
+    margin: 0px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #fff;
+}
+
+.hr1 {
+    border: none;
+    height: 2px;
+    color: #ccc;
+    background-color: #ccc;
+    text-align: left;
+    width: 100%;
+}
+
+.hr2 {
+    border: none;
+    height: 0.5px;
+    color: #ccc;
+    background-color: #ccc;
+    text-align: left;
+    width: 100%;
+}
+
+.hr3 {
+    border: none;
+    height: 2px;
+    color: #ccc;
+    background-color: #07B0FB;
+    text-align: left;
+    width: 100%;
+}
