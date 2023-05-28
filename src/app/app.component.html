@@ -9,7 +9,7 @@
 
   <main class="content">
     <!-- Input -->
-    <h2>BRL Exchange Rate</h2>
+    <h2 class="tittle">BRL Exchange Rate</h2>
 
     <mat-form-field class="select-currency">
       <mat-label>Enter the currency code</mat-label>
@@ -46,8 +46,8 @@
         fxLayoutAlign="space-between center"
       >
         <div>
-          <p><b>Exchange rate now</b></p>
-          <p>{{ lastUpdatedAt }}</p>
+          <p class="rate">Exchange rate now</p>
+          <p class="lastUpdatedAt">{{ lastUpdatedAt }}</p>
         </div>
         <div fxLayout="column" fxLayoutAlign="center center">
           <h2>{{ showedCurrency }}/BRL</h2>
@@ -64,16 +64,110 @@
         class="more-info-button"
         fxLayout="row"
         fxLayoutAlign="space-between center"
+        (click)="setMoreInfoView()"
       >
-        <p>LAST 30 DAYS</p>
-        <p>+</p>
+        <p class="last-30">LAST 30 DAYS</p>
+        <mat-icon
+          *ngIf="!viewMoreInfo"
+          style="margin-bottom: 8px"
+          class="plus-button"
+          >add</mat-icon
+        >
+        <mat-icon
+          *ngIf="viewMoreInfo"
+          style="margin-bottom: 8px"
+          class="plus-button"
+          >remove</mat-icon
+        >
       </div>
 
       <!-- More Info -->
-      <div></div>
+      <div *ngIf="viewMoreInfo">
+        <div class="table" *ngFor="let day of dailys">
+          <div class="card">
+            <p class="date-of-day">{{ getFormatedDate(day.date, "card") }}</p>
+            <div
+              class="comparatives"
+              fxLayout="row"
+              fxLayoutAlign="space-between center"
+            >
+              <div class="status">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <p>OPEN:</p>
+                  <p style="margin-left: 14px" class="detail">
+                    R$ {{ day.open }}
+                  </p>
+                </div>
+                <div
+                  style="margin-top: 6px"
+                  fxLayout="row"
+                  fxLayoutAlign="space-between center"
+                >
+                  <p>CLOSE:</p>
+                  <p style="margin-left: 9px" class="detail">
+                    R$ {{ day.close }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="values">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <p>HIGHT:</p>
+                  <p style="margin-left: 10px" class="detail">
+                    R$ {{ day.high }}
+                  </p>
+                </div>
+                <div
+                  style="margin-top: 6px"
+                  fxLayout="row"
+                  fxLayoutAlign="space-between center"
+                >
+                  <p>LOW:</p>
+                  <p style="margin-left: 20px" class="detail">
+                    R$ {{ day.low }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="diference"
+              fxLayout="row"
+              fxLayoutAlign="space-between center"
+            >
+              <p class="close-diff">CLOSE DIFF (%):</p>
+              <div
+                *ngIf="100 - (day.close * 100) / day.open > 0"
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+              >
+                <p class="percent green">
+                  +{{ (100 - (day.close * 100) / day.open).toFixed(2) }}%
+                </p>
+                <mat-icon style="margin-left: 5px" class="green"
+                  >expand_less</mat-icon
+                >
+              </div>
+              <div
+                *ngIf="100 - (day.close * 100) / day.open <= 0"
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+              >
+                <p class="percent red">
+                  {{ (100 - (day.close * 100) / day.open).toFixed(2) }}%
+                </p>
+                <mat-icon style="margin-left: 5px" class="red"
+                  >expand_more</mat-icon
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <hr class="hr3" />
     </div>
   </main>
+
+  <div class="space-below"></div>
 
   <footer class="footer">
     <p>Copyright 2022 - Action Labs</p>
