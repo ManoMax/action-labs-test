@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class DailyInformationCardsComponent {
   @Input() dailys: any;
+  @Input() viewMoreInfo: boolean = false;
 
   getFormatedDate(data: string): string {
     let lastUpdatedAt = new Date(data);

@@ -1,5 +1,3 @@
-<style></style>
-
 <div class="page">
   <!-- Header -->
   <app-action-labs-header></app-action-labs-header>
@@ -8,54 +6,36 @@
     <!-- Tittle -->
     <h2 class="tittle">BRL Exchange Rate</h2>
 
-    <!-- Input -->
-    <mat-form-field class="select-currency">
-      <mat-label>Enter the currency code</mat-label>
+    <!-- Input and Button -->
+    <app-input-exchange
+      (showedCurrencyType)="onCurrencyTypeIsUpdated($event)"
+      (currencyValue)="onCurrencyValueIsEmited($event)"
+      (lastUpdatedDate)="onLastUpdatedDateIsEmited($event)"
+      (showDisplayWithTrue)="onDisplayIsTrue($event)"
+    ></app-input-exchange>
 
-      <mat-select
-        class="mat-selected"
-        (selectionChange)="changeCurrencyType($event.value)"
-      >
-        <mat-option
-          *ngFor="let currency of currencyTypes"
-          [value]="currency.acronym"
-          class="not-empty-select"
-        >
-          {{ currency.acronym }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <button
-      mat-flat-button
-      color="primary"
-      class="button"
-      (click)="displayInfos()"
-    >
-      EXCHANGE RESULT
-    </button>
-
-    <!-- Infos -->
-    <div *ngIf="display" class="display">
+    <!-- Display -->
+    <div *ngIf="displayBasicInfo" class="display">
       <hr class="hr2" />
 
-      <!-- Complement -->
+      <!-- Basic Info -->
       <app-exchange-rate-now
         [currencyValue]="currencyValue"
-        [lastUpdatedAt]="lastUpdatedAt"
-        [showedCurrency]="showedCurrency"
+        [lastUpdatedDate]="lastUpdatedDate"
+        [currencyType]="currencyType"
       ></app-exchange-rate-now>
 
       <!-- More Info Button -->
       <app-more-info-button
-        [viewMoreInfo]="viewMoreInfo"
-        (click)="setMoreInfoView()"
+        [currencyType]="currencyType"
+        (dailys)="onDailysIsEmited($event)"
+        (viewMoreInfo)="onViewMoreInfoIsEmited($event)"
       ></app-more-info-button>
 
       <!-- More Info -->
       <app-daily-information-cards
         [dailys]="dailys"
-        *ngIf="viewMoreInfo"
+        [viewMoreInfo]="viewMoreInfo"
       ></app-daily-information-cards>
 
       <hr class="hr3" />
@@ -64,6 +44,7 @@
 
   <div class="space-below"></div>
 
+  <!-- Footer -->
   <footer class="footer">
     <p>Copyright 2022 - Action Labs</p>
   </footer>

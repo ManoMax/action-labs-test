@@ -1,62 +1,70 @@
-<div class="table" *ngFor="let day of dailys">
-  <div class="card">
-    <p class="date-of-day">{{ getFormatedDate(day.date) }}</p>
-    <div
-      class="comparatives"
-      fxLayout="row"
-      fxLayoutAlign="space-between center"
-    >
-      <div class="status">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <p>OPEN:</p>
-          <p style="margin-left: 14px" class="detail">R$ {{ day.open }}</p>
+<div *ngIf="viewMoreInfo">
+  <div class="table" *ngFor="let day of dailys">
+    <div class="card">
+      <p class="date-of-day">{{ getFormatedDate(day.date) }}</p>
+      <div
+        class="comparatives"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      >
+        <div class="status">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <p>OPEN:</p>
+            <p style="margin-left: 14px" class="detail">R$ {{ day.open }}</p>
+          </div>
+          <div
+            style="margin-top: 6px"
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+          >
+            <p>CLOSE:</p>
+            <p style="margin-left: 9px" class="detail">R$ {{ day.close }}</p>
+          </div>
         </div>
-        <div
-          style="margin-top: 6px"
-          fxLayout="row"
-          fxLayoutAlign="space-between center"
-        >
-          <p>CLOSE:</p>
-          <p style="margin-left: 9px" class="detail">R$ {{ day.close }}</p>
-        </div>
-      </div>
 
-      <div class="values">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <p>HIGHT:</p>
-          <p style="margin-left: 10px" class="detail">R$ {{ day.high }}</p>
+        <div class="values">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <p>HIGHT:</p>
+            <p style="margin-left: 10px" class="detail">R$ {{ day.high }}</p>
+          </div>
+          <div
+            style="margin-top: 6px"
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+          >
+            <p>LOW:</p>
+            <p style="margin-left: 20px" class="detail">R$ {{ day.low }}</p>
+          </div>
         </div>
+      </div>
+      <div
+        class="diference"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      >
+        <p class="close-diff">CLOSE DIFF (%):</p>
         <div
-          style="margin-top: 6px"
+          *ngIf="100 - (day.close * 100) / day.open > 0"
           fxLayout="row"
           fxLayoutAlign="space-between center"
         >
-          <p>LOW:</p>
-          <p style="margin-left: 20px" class="detail">R$ {{ day.low }}</p>
+          <p class="percent green">
+            +{{ (100 - (day.close * 100) / day.open).toFixed(2) }}%
+          </p>
+          <mat-icon style="margin-left: 5px" class="green"
+            >expand_less</mat-icon
+          >
         </div>
-      </div>
-    </div>
-    <div class="diference" fxLayout="row" fxLayoutAlign="space-between center">
-      <p class="close-diff">CLOSE DIFF (%):</p>
-      <div
-        *ngIf="100 - (day.close * 100) / day.open > 0"
-        fxLayout="row"
-        fxLayoutAlign="space-between center"
-      >
-        <p class="percent green">
-          +{{ (100 - (day.close * 100) / day.open).toFixed(2) }}%
-        </p>
-        <mat-icon style="margin-left: 5px" class="green">expand_less</mat-icon>
-      </div>
-      <div
-        *ngIf="100 - (day.close * 100) / day.open <= 0"
-        fxLayout="row"
-        fxLayoutAlign="space-between center"
-      >
-        <p class="percent red">
-          {{ (100 - (day.close * 100) / day.open).toFixed(2) }}%
-        </p>
-        <mat-icon style="margin-left: 5px" class="red">expand_more</mat-icon>
+        <div
+          *ngIf="100 - (day.close * 100) / day.open <= 0"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <p class="percent red">
+            {{ (100 - (day.close * 100) / day.open).toFixed(2) }}%
+          </p>
+          <mat-icon style="margin-left: 5px" class="red">expand_more</mat-icon>
+        </div>
       </div>
     </div>
   </div>

@@ -2,12 +2,19 @@
   class="more-info-button"
   fxLayout="row"
   fxLayoutAlign="space-between center"
+  (click)="setMoreInfoView()"
 >
   <p class="last-30">LAST 30 DAYS</p>
-  <mat-icon *ngIf="!viewMoreInfo" style="margin-bottom: 8px" class="plus-button"
+  <mat-icon
+    *ngIf="!currentViewStatus"
+    style="margin-bottom: 8px"
+    class="plus-button"
     >add</mat-icon
   >
-  <mat-icon *ngIf="viewMoreInfo" style="margin-bottom: 8px" class="plus-button"
+  <mat-icon
+    *ngIf="currentViewStatus"
+    style="margin-bottom: 8px"
+    class="plus-button"
     >remove</mat-icon
   >
 </div>

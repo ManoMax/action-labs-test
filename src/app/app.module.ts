@@ -10,6 +10,7 @@ import { DailyInformationCardsComponent } from './components/daily-information-c
 import { MoreInfoButtonComponent } from './components/more-info-button/more-info-button.component';
 import { ExchangeRateNowComponent } from './components/exchange-rate-now/exchange-rate-now.component';
 import { ActionLabsHeaderComponent } from './components/action-labs-header/action-labs-header.component';
+import { InputExchangeComponent } from './components/input-exchange/input-exchange.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ActionLabsHeaderComponent } from './components/action-labs-header/actio
     MoreInfoButtonComponent,
     ExchangeRateNowComponent,
     ActionLabsHeaderComponent,
+    InputExchangeComponent,
   ],
   imports: [
     BrowserModule,

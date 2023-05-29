@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ExchangeRateNowComponent {
   @Input() currencyValue: Number = 0;
-  @Input() showedCurrency: string = '';
-  @Input() lastUpdatedAt: string = '';
+  @Input() currencyType: string = '';
+  @Input() lastUpdatedDate: string = '';
 }
