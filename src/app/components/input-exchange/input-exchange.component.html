@@ -1,0 +1,16 @@
+<mat-form-field class="select-currency">
+  <mat-label>Enter the currency code</mat-label>
+
+  <mat-select (selectionChange)="changeCurrencyType($event.value)">
+    <mat-option
+      *ngFor="let currency of currencyTypes"
+      [value]="currency.acronym"
+    >
+      {{ currency.acronym }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-flat-button color="primary" class="button" (click)="displayInfos()">
+  EXCHANGE RESULT
+</button>

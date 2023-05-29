@@ -3,16 +3,6 @@
     overflow: auto;
 }
 
-.toolbar {
-    position: relative;
-    height: 76px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .content {
     background-color: #fff;
     width: 100%;
@@ -36,151 +26,7 @@
 
     .display {
         width: 100%;
-        margin-top: 32px;
-        
-        .display-tittle {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            margin-top: 30px;
-
-            .rate {
-                font-weight: 500;
-                font-size: 18px;
-            }
-
-            .lastUpdatedAt {
-                margin-top: 6px;
-                font-weight: 400;
-                font-size: 14px;
-            }
-        }
-        .display-tittle p {
-            margin: 0;
-        }
-        .display-tittle h2 {
-            margin: 0;
-            font-size: 24px;
-            padding-top: 4px;
-            font-weight: 500;
-        }
-        .display-value {
-            width: 100%;
-            height: 72px;
-            background-color: #e6f7ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #07b0fb;
-            font-size: 32px;
-            font-weight: 800;
-            margin-top: 15px;
-        }
-
-        .more-info-button {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 32px;
-        }
-
-        .last-30 {
-            margin-top: 0;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-    }
-
-    .table {
-        background-color: #F4F4F4;
-        width: 100%;
-        padding: 10px;
-    }
-
-    .card {
-        background-color: #FFF;
-        width: 100%;
-        padding: 16px;
-
-        .date-of-day {
-            margin: 0;
-            color: #07B0FB;
-            font-weight: 500;
-        }
-
-        .comparatives {
-            display: flex;
-            width: 100%;
-
-            .status {
-                width: 100%;
-                font-size: 11px;
-                font-weight: 400;
-                margin-top: 8px;
-            }
-
-            .status div {
-                display: flex;
-                align-items: center;
-            }
-            
-            .status div p {
-                margin: 0;
-            }
-
-            .values {
-                width: 100%;
-                font-size: 11px;
-                font-weight: 400;
-                margin-top: 8px;
-            }
-
-            .values div {
-                display: flex;
-                align-items: center;
-            }
-
-            .values div p {
-                margin: 0;
-            }
-
-            .detail {
-                margin-left: 14px;
-                font-size: 16px;
-                font-weight: 500;
-            }
-        }
-
-        .diference {
-            display: flex;
-            align-items: center;
-            margin-top: 9px;
-
-            .close-diff {
-                font-size: 11px;
-                margin: 0;
-            }
-
-            .percent {
-                margin: 0;
-                margin-left: 8px;
-            }
-
-            .green {
-                color: #69C669;
-            }
-
-            .red {
-                color: #E54E4E;
-            }
-        }
-
-        .diference div {
-            display: flex;
-            align-items: center;
-        }
-
+        margin-top: 32px;        
     }
 }
 
@@ -220,15 +66,6 @@
     color: #fff;
 }
 
-.hr1 {
-    border: none;
-    height: 2px;
-    color: #ccc;
-    background-color: #ccc;
-    text-align: left;
-    width: 100%;
-}
-
 .hr2 {
     border: none;
     height: 0.5px;
@@ -247,10 +84,7 @@
     width: 100%;
 }
 
-.plus-button {
-    transform: scale(1.3);
-    color: #07B0FB;
-}
+
 
 .space-below {
     padding: 20px;

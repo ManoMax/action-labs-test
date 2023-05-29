@@ -1,0 +1,84 @@
+.card {
+    background-color: #FFF;
+    width: 100%;
+    padding: 16px;
+
+    .date-of-day {
+        margin: 0;
+        color: #07B0FB;
+        font-weight: 500;
+    }
+
+    .comparatives {
+        display: flex;
+        width: 100%;
+
+        .status {
+            width: 100%;
+            font-size: 11px;
+            font-weight: 400;
+            margin-top: 8px;
+        }
+
+        .status div {
+            display: flex;
+            align-items: center;
+        }
+        
+        .status div p {
+            margin: 0;
+        }
+
+        .values {
+            width: 100%;
+            font-size: 11px;
+            font-weight: 400;
+            margin-top: 8px;
+        }
+
+        .values div {
+            display: flex;
+            align-items: center;
+        }
+
+        .values div p {
+            margin: 0;
+        }
+
+        .detail {
+            margin-left: 14px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+
+    .diference {
+        display: flex;
+        align-items: center;
+        margin-top: 9px;
+
+        .close-diff {
+            font-size: 11px;
+            margin: 0;
+        }
+
+        .percent {
+            margin: 0;
+            margin-left: 8px;
+        }
+
+        .green {
+            color: #69C669;
+        }
+
+        .red {
+            color: #E54E4E;
+        }
+    }
+
+    .diference div {
+        display: flex;
+        align-items: center;
+    }
+
+}

@@ -1,18 +1,17 @@
 <style></style>
 
-<!-- Toolbar -->
 <div class="page">
-  <header class="toolbar" fxLayoutAlign="center center" flex>
-    <img alt="Angular Logo" src="../assets/logo_action_labs.png" />
-    <hr class="hr1" />
-  </header>
+  <!-- Header -->
+  <app-action-labs-header></app-action-labs-header>
 
   <main class="content">
-    <!-- Input -->
+    <!-- Tittle -->
     <h2 class="tittle">BRL Exchange Rate</h2>
 
+    <!-- Input -->
     <mat-form-field class="select-currency">
       <mat-label>Enter the currency code</mat-label>
+
       <mat-select
         class="mat-selected"
         (selectionChange)="changeCurrencyType($event.value)"
@@ -39,130 +38,26 @@
     <!-- Infos -->
     <div *ngIf="display" class="display">
       <hr class="hr2" />
-      <!-- Complement -->
-      <div
-        class="display-tittle"
-        fxLayout="row"
-        fxLayoutAlign="space-between center"
-      >
-        <div>
-          <p class="rate">Exchange rate now</p>
-          <p class="lastUpdatedAt">{{ lastUpdatedAt }}</p>
-        </div>
-        <div fxLayout="column" fxLayoutAlign="center center">
-          <h2>{{ showedCurrency }}/BRL</h2>
-        </div>
-      </div>
 
-      <!-- Value -->
-      <div class="display-value">
-        <p>R$ {{ currencyValue }}</p>
-      </div>
+      <!-- Complement -->
+      <app-exchange-rate-now
+        [currencyValue]="currencyValue"
+        [lastUpdatedAt]="lastUpdatedAt"
+        [showedCurrency]="showedCurrency"
+      ></app-exchange-rate-now>
 
       <!-- More Info Button -->
-      <div
-        class="more-info-button"
-        fxLayout="row"
-        fxLayoutAlign="space-between center"
+      <app-more-info-button
+        [viewMoreInfo]="viewMoreInfo"
         (click)="setMoreInfoView()"
-      >
-        <p class="last-30">LAST 30 DAYS</p>
-        <mat-icon
-          *ngIf="!viewMoreInfo"
-          style="margin-bottom: 8px"
-          class="plus-button"
-          >add</mat-icon
-        >
-        <mat-icon
-          *ngIf="viewMoreInfo"
-          style="margin-bottom: 8px"
-          class="plus-button"
-          >remove</mat-icon
-        >
-      </div>
+      ></app-more-info-button>
 
       <!-- More Info -->
-      <div *ngIf="viewMoreInfo">
-        <div class="table" *ngFor="let day of dailys">
-          <div class="card">
-            <p class="date-of-day">{{ getFormatedDate(day.date, "card") }}</p>
-            <div
-              class="comparatives"
-              fxLayout="row"
-              fxLayoutAlign="space-between center"
-            >
-              <div class="status">
-                <div fxLayout="row" fxLayoutAlign="space-between center">
-                  <p>OPEN:</p>
-                  <p style="margin-left: 14px" class="detail">
-                    R$ {{ day.open }}
-                  </p>
-                </div>
-                <div
-                  style="margin-top: 6px"
-                  fxLayout="row"
-                  fxLayoutAlign="space-between center"
-                >
-                  <p>CLOSE:</p>
-                  <p style="margin-left: 9px" class="detail">
-                    R$ {{ day.close }}
-                  </p>
-                </div>
-              </div>
+      <app-daily-information-cards
+        [dailys]="dailys"
+        *ngIf="viewMoreInfo"
+      ></app-daily-information-cards>
 
-              <div class="values">
-                <div fxLayout="row" fxLayoutAlign="space-between center">
-                  <p>HIGHT:</p>
-                  <p style="margin-left: 10px" class="detail">
-                    R$ {{ day.high }}
-                  </p>
-                </div>
-                <div
-                  style="margin-top: 6px"
-                  fxLayout="row"
-                  fxLayoutAlign="space-between center"
-                >
-                  <p>LOW:</p>
-                  <p style="margin-left: 20px" class="detail">
-                    R$ {{ day.low }}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              class="diference"
-              fxLayout="row"
-              fxLayoutAlign="space-between center"
-            >
-              <p class="close-diff">CLOSE DIFF (%):</p>
-              <div
-                *ngIf="100 - (day.close * 100) / day.open > 0"
-                fxLayout="row"
-                fxLayoutAlign="space-between center"
-              >
-                <p class="percent green">
-                  +{{ (100 - (day.close * 100) / day.open).toFixed(2) }}%
-                </p>
-                <mat-icon style="margin-left: 5px" class="green"
-                  >expand_less</mat-icon
-                >
-              </div>
-              <div
-                *ngIf="100 - (day.close * 100) / day.open <= 0"
-                fxLayout="row"
-                fxLayoutAlign="space-between center"
-              >
-                <p class="percent red">
-                  {{ (100 - (day.close * 100) / day.open).toFixed(2) }}%
-                </p>
-                <mat-icon style="margin-left: 5px" class="red"
-                  >expand_more</mat-icon
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <hr class="hr3" />
     </div>
   </main>

@@ -1,0 +1,38 @@
+.display-tittle {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    .rate {
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    .lastUpdatedAt {
+        margin-top: 6px;
+        font-weight: 400;
+        font-size: 14px;
+    }
+}
+.display-tittle p {
+    margin: 0;
+}
+.display-tittle h2 {
+    margin: 0;
+    font-size: 24px;
+    padding-top: 4px;
+    font-weight: 500;
+}
+.display-value {
+    width: 100%;
+    height: 72px;
+    background-color: #e6f7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #07b0fb;
+    font-size: 32px;
+    font-weight: 800;
+    margin-top: 15px;
+}
